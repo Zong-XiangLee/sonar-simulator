@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SONAR Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="compact-header">
+    <div class="mode-pill" id="modePill">Passive Sonar</div>
+    <div class="header-controls">
+      <button id="toggleModeBtn">Toggle Mode: Tab</button>
+      <button id="resetBtn">Reset: R</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="sim-card">
+      <canvas id="simCanvas" width="1300" height="820" aria-label="Sonar simulation canvas"></canvas>
+    </section>
+
+    <aside class="panel">
+      <section class="stats">
+        <h2>Status</h2>
+        <div class="stat"><span>Mode</span><strong id="modeText">Passive</strong></div>
+        <div class="stat"><span>Beam heading</span><strong id="headingText">0°</strong></div>
+        <div class="stat"><span>Active range</span><strong id="rangeText">720 m</strong></div>
+        <div class="stat"><span>Locks</span><strong id="lockText">None</strong></div>
+      </section>
+
+      <section class="sliders">
+        <h2>Simulation Controls</h2>
+
+        <label>
+          Active sonar range
+          <input id="rangeSlider" type="range" min="350" max="950" value="720" />
+          <span id="rangeValue">720 m</span>
+        </label>
+
+        <label>
+          Beam width
+          <input id="beamSlider" type="range" min="15" max="360" value="80" />
+          <span id="beamValue">80°</span>
+        </label>
+
+        <label>
+          Ping speed
+          <input id="pingSpeedSlider" type="range" min="220" max="620" value="420" />
+          <span id="pingSpeedValue">420 m/s</span>
+        </label>
+
+        <label>
+          Auto ping rate
+          <input id="pingRateSlider" type="range" min="1" max="6" value="3" />
+          <span id="pingRateValue">3.0 s</span>
+        </label>
+
+        <label>
+          Background noise
+          <input id="bgNoiseSlider" type="range" min="0" max="100" value="30" />
+          <span id="bgNoiseValue">30%</span>
+        </label>
+
+        <label>
+          Turning speed
+          <input id="turnSpeedSlider" type="range" min="25" max="160" value="55" />
+          <span id="turnSpeedValue">55°/s</span>
+        </label>
+      </section>
+
+      <section class="help">
+        <h2>Controls</h2>
+        <p><strong>W / Up arrow</strong> move forward</p>
+        <p><strong>S / Down arrow</strong> move backward</p>
+        <p><strong>A / D or Left / Right</strong> turn beam</p>
+        <p><strong>Shift</strong> faster movement</p>
+        <p><strong>Tab</strong> toggle passive / active</p>
+        <p><strong>R</strong> reset</p>
+      </section>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
